@@ -1,0 +1,14 @@
+下面提供一些"撤销本地修改"的方式, 注意它们的适用场景可能不一样.
+
+
+1. git checkout .  #本地所有修改, 没有提交的, 都恢复到原来的状态
+
+
+2. git stash   #把所有没有提交的修改暂存到stash里面. 可以用git stash pop恢复.
+
+
+3. git reset --hard <hash_value>或者HEAD^<value>  #返回到某一个/上几个修改, 不保存当前修改
+
+
+4. git reset --soft <hash_value>或者HEAD^<value>  #返回到某一个/上几个修改, 保存当前的修改
+

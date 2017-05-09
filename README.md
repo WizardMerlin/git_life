@@ -1,7 +1,8 @@
 # 引子
-common tips of git in everyday-work, but not tutoial
 
-这里并不是教程, 而是日常使用中, 常见的场景下的git tips.都是有用的干货, 针对不同的&特定主题, 进行长期更新.
+**common tips of git in everyday-work, but not tutoial**
+
+这里并不是教程, 而是日常使用中, 常见的场景下的`git tips`.都是有用的干货, 针对不同的&特定主题, 进行长期更新.
 
 (不要学的很痛苦, 不要文章太长)
 
@@ -26,6 +27,11 @@ common tips of git in everyday-work, but not tutoial
 
 # 正文
 
+TIPS:
+
+1. 抛弃本地修改以及回退
+
+2.
 
 
 
