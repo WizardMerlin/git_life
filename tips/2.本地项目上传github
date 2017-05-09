@@ -1,0 +1,25 @@
+如何将本地项目上传到github
+
+1. 在相关目录下,初始化一个裸库
+在你的项目文件目录下, 执行命令git init, 使之成为一个git仓库(生成了一个.git的隐藏文件夹)
+(先切换到目录下)
+(注意不要加--bare参数)
+
+2. 初始化本地库
+虽然有了库, 但是该目录下的文件还没有加入库中追踪.
+将项目里所有文件加到本地的仓库，使用以下命令:
+git add .  
+git commit -m "xxxx"
+
+
+3.然后将github上的项目pull下来: (也就是说, 你要去github创建一个空项目)
+git pull <git_project_addr>
+
+
+4.为版本库添加名为origin的远程版本库:(git remote操作)
+git remote add origin <git_project_addr>
+
+
+5.执行推送命令, 完成GitHub版本库的初始化
+git push -u origin master
+(注意命令行中的-u参数, 在推送成功后自动建立本地分支与远程版本库分支的追踪)
