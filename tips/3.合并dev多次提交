@@ -1,0 +1,44 @@
+场景:
+
+dev或者bugfix的多次提交要同步到master, 但是尴尬的是dev分支有些提交仅仅是为了测试或者commit message是乱写的.
+
+怎么样在合并到master时, 当做一次合并呢?
+
+
+解决办法
+
+1. 手动处理
+
+   git reset --soft 某些提交的commit_id;
+
+   这样这些提交的内容全部到了工作区, 然后再进行一次commit.
+
+   这样dev branch那些个随便的提交就没有了, 再同步到master分支吧(用rebase或者merge随便你)
+
+   (这样主要是在dev branch上操作)
+
+
+2. 直接在master分支上压缩dev分支.
+
+   git merge --squash <branch name>
+
+   这样dev所有的比master多出来的修改都放在了master的工作区.
+
+   然后在master上进行提交就可以了.
+   git commit
+
+
+3. 同２,但是使用交互式rebase
+
+   即rebase -i
+
+   在dev分支上先处理好:
+   git rebase -i HEAD^3   表示处理前三次的提交信息
+
+   弹出的界面会让你编辑提交信息, 其中会列举出来是否使用某一次提交或者是否要修改提交信息, 压缩等指令.
+
+   pick, reword, edit, squash, fixup, exec指令(可以参照上面的文档)
+
+   在上面的界面里修改后两次提交为squash, 最开始的一次为edit或者pick, 保存即可.
+
+   这样dev分支就只有一次提交了, 然后同步到master上.
