@@ -1,0 +1,31 @@
+回退某个修改的时候, 通常最常见的两种方式是:
+
+1. git revert
+2. git reset  (--hard/--soft)
+
+
+其中git revert回退的时候, 会生成一次新的提交, 作为回退提交:
+
+A -> B -> C
+
+然后你键入: git revert HEAD~1
+(当然你可以不写HEAD,　而写具体的HEAD)
+此时生成一个提交D, 作为对于B的回退, 变成了 A -> B -> C -> D.
+
+---
+
+但是如果你使用的是git reset:
+
+git reset --hard HEAD~1
+
+此时变成了:  A -> B
+
+(git log是查不到提交Ｃ的信息的)
+
+
+---
+这个时候还是有办法的, 所有对于分支的操作记录都会存在本地; git log 只是看到一部分.
+
+git reflog可以看到所有的修改, 然后用这个命令就可以看到 git reset的操作commmit id.
+
+此时如果想回退之前git reset --hard　那次操作; 直接从这里拿到commit id然后还是用git reset --hard即可.
