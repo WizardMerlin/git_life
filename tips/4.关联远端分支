@@ -1,0 +1,21 @@
+关联本地分支到远端分支:
+
+
+如果项目不是git clone的或者本地的分支没有对应远端分支(可能是中途修改了远端对应的分支)
+那么此时直接使用git pull或者git push就会报错.
+
+将本地master分支关联到远端分支master:
+
+`git branch --set-upstream-to=origin/master master`
+
+这个时候本地的master分支就和远端origin的master对应上了.
+
+在push的时候, 也可以直接对应关联(指定push对应的远端对象):
+
+`git push -u origin master`
+
+
+
+
+
+
